@@ -1,0 +1,11 @@
+<div class="app-container" fxLayout="column">
+    <!-- <div>
+        <banner></banner>
+    </div> -->
+
+    <div fxLayoutAlign="center center" fxLayout="row wrap" fxLayoutGap="50px">
+        <app-producttile [name]="p.productName_level2" [description]="p.description" [image]="p.productPicURL_level3" [mrp]="p.mrp" [sellerLocation]="p.sellerLocation" *ngFor="let p of product.listOfLevel2Cards" [seller]="p.sellerName">
+        </app-producttile>
+    </div>
+
+</div>

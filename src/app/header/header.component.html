@@ -1,0 +1,27 @@
+<header class="top-header ">
+    <div class="app-container">
+        <mat-icon fxHide fxShow.xs (click)="sidenav.toggleSidenav()">menu</mat-icon>
+
+        <div fxFlex="33.33%" fxLayoutAlign="start center">
+            <!-- <mat-icon aria-hidden="false" routerLink="/" role="button">home</mat-icon> -->
+            <div fxHide.xs class="login" routerLink="/" fxLayout="row" fxLayoutGap="5px" class="home">
+                <mat-icon aria-hidden="false" role="button">home</mat-icon>
+                <a>HOME</a>
+            </div>
+        </div>
+        <div fxShow="true" fxHide.lt-md fxFlex="33.33%" fxLayoutGap="20px" fxLayoutAlign="center center">
+            <a class="header-links" routerLink="/">SHOP</a>
+            <a class="header-links" routerLink="/order/order-list">BULK ORDER</a>
+            <a class="header-links">PACKAGING</a>
+            <a class="header-links">OUR STORY</a>
+            <a class="header-links" routerLink="/">PRODUCTS</a>
+        </div>
+        <div fxShow="true" fxHide.lt-md fxFlex="33.33%" fxLayoutAlign="end center" (click)="login()">
+            <div fxLayout="row" fxLayoutGap="5px" class="login">
+                <mat-icon>account_circle</mat-icon>
+                <a>LOGIN</a>
+            </div>
+
+        </div>
+    </div>
+</header>

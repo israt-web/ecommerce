@@ -1,0 +1,91 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$practice-primary: mat-palette($mat-indigo);
+$practice-accent: mat-palette($mat-pink, A200, A100, A400);
+// The warn palette is optional (defaults to red).
+$practice-warn: mat-palette($mat-red);
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$practice-theme: mat-light-theme(( color: ( primary: $practice-primary, accent: $practice-accent, warn: $practice-warn, )));
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($practice-theme);
+
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    background-color: #ebfcf0;
+}
+
+.app-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 10px;
+    box-sizing: border-box;
+    @media screen and (max-width: 599px) {
+        max-width: 100%;
+        padding: 0;
+    }
+    @media screen and (max-width:1440px) {
+        max-width: 1256px;
+    }
+}
+
+// .mat-form-field-wrapper {
+//     padding-bottom: 0 !important;
+// }
+.mat-card {
+    padding: 50px !important;
+}
+
+.mat-dialog-container {
+    border-radius: 0px !important;
+    padding: 10px 60px 24px 60px !important;
+}
+
+.mat-card {
+    border-radius: 0px !important;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline-end {
+    border-radius: 0px !important;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline-start {
+    border-radius: 0px !important;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline {
+    color: #8badad !important;
+}
+
+.mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid .mat-form-field-outline-thick {
+    color: red!important;
+    opacity: 0.8!important;
+}
+
+// .show-error-msg {
+//     font-size: 12px !important;
+//     color: red !important;
+//     position: absolute !important;
+//     bottom: -16px !important;
+//     left: 0 !important;
+// }

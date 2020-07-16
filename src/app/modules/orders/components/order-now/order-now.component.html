@@ -1,0 +1,75 @@
+<div fxLayout="column" fxLayoutAlign="center">
+
+    <h2 fxLayoutAlign="center center" class="order-now">ORDER NOW</h2>
+    <form fxLayout="column" [formGroup]="productForm" (ngSubmit)="onSubmit()">
+        <!--product name & quantity-->
+        <div fxLayout="column">
+            <div fxLayout="row" fxLayoutGap="10px">
+                <mat-form-field appearance="outline" fxFlex="70%">
+                    <!-- <mat-label>{{product.listOfLevel2Cards?.productName_level2}}</mat-label> -->
+                    <mat-label>Mango</mat-label>
+                    <input matInput placeholder="Mangoes" formControlName="productName">
+
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" fxFlex="30%">
+                    <mat-label>QUANTITY</mat-label>
+                    <input type="number" matInput placeholder="Quantity" formControlName="quantity">
+
+                </mat-form-field>
+            </div>
+            <!--name-->
+            <mat-form-field appearance="outline" fxFlexFill>
+                <mat-label>Name</mat-label>
+                <input matInput placeholder="Placeholder" formControlName="Name">
+            </mat-form-field>
+            <!--email id-->
+            <mat-form-field appearance="outline" fxFlexFill>
+                <mat-label>Email id</mat-label>
+                <input matInput placeholder="Placeholder" formControlName="emailId">
+            </mat-form-field>
+            <!--mobile-->
+            <mat-form-field appearance="outline" fxFlexFill>
+                <mat-label>Mobile</mat-label>
+                <input matInput placeholder="Placeholder" formControlName="mobileNumber">
+            </mat-form-field>
+            <!--Address-->
+            <!-- <mat-form-field appearance="outline" fxFlexFill>
+                <mat-label>Address</mat-label>
+                <input matInput placeholder="Placeholder" formControlName="address">
+                <textarea placeholder="Placeholder" formControlName="address" rows="5"></textarea>
+
+            </mat-form-field> -->
+            <!-- <div fxFlexFill>
+                <label for="address">
+                <textarea placeholder="Address" formControlName="address" rows="5" cols="40"></textarea>
+              </label>
+
+            </div> -->
+            <mat-form-field appearance="outline" fxFlexFill>
+                <mat-label>Address</mat-label>
+                <textarea matInput placeholder="Address" formControlName="address" rows="3" cols="40"></textarea>
+            </mat-form-field>
+        </div>
+
+        <!-- </form> -->
+        <!-- </div> -->
+        <div fxLayout="column" fxLayoutGap="10px">
+            <h1 class="payment-mode">Select Payment Mode</h1>
+            <mat-button-toggle-group fxLayout="row" fxLayoutGap="10px">
+                <mat-button-toggle fxLayout="row" fxLayoutGap="5px" class="online">
+                    <mat-icon>payment</mat-icon>
+                    <span>online</span>
+                </mat-button-toggle>
+                <mat-button-toggle fxLayout="row" fxLayoutGap="5px" class="online">
+                    <mat-icon>payment</mat-icon>
+                    <span>cash</span>
+                </mat-button-toggle>
+            </mat-button-toggle-group>
+        </div>
+        <!--Checkout btn-->
+        <div class="mt-4" fxLayoutAlign="center center">
+            <button mat-button (click)="checkout()" class="checkout" [disabled]="!productForm.valid" routerLink="/order/order-list">Checkout Now</button>
+        </div>
+    </form>
+</div>

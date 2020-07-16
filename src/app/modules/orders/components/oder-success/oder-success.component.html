@@ -1,0 +1,27 @@
+<div class="container">
+    <div fxLayout="column" fxLayoutGap="30px">
+        <div *ngFor="let card of businesses">
+
+            <mat-card fxLayout="row" fxLayoutAlign="space-between center">
+                <div class="product-img">
+                    <img [src]="card.images" width="100">
+
+                </div>
+
+                <div class="product-title " fxLayout="column" fxLayoutAlign="start start">
+                    <p class="title">{{card.title}}</p>
+                    <p>{{card.sub_title}}</p>
+                </div>
+
+                <div fxLayout="column" class=" quantity" fxLayoutAlign="start start">
+                    <p class="title">{{card.quantity}}</p>
+                    <p>{{card.unit}}</p>
+                </div>
+
+                <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="20px" fxLayoutGap.xs="10px">
+                    <button mat-button class="btn-save cancel">{{card.cancel_btn}}</button>
+                    <button mat-button class="btn-save order-track">{{card. trackOrder_btn}}</button>
+                </div>
+            </mat-card>
+        </div>
+    </div>

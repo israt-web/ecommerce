@@ -1,0 +1,10 @@
+<app-header></app-header>
+<mat-sidenav-container>
+    <mat-sidenav [fixedInViewport]="true" position="start" #sidenav role="navigation">
+        <app-sidenav (closed)="sidenav.close()"></app-sidenav>
+    </mat-sidenav>
+</mat-sidenav-container>
+<div class="wrapper">
+
+    <router-outlet></router-outlet>
+</div>
