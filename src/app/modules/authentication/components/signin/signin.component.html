@@ -1,22 +1,40 @@
 <div fxLayout="column" fxLayoutGap="20px" class="signin-card">
     <div fxLayoutAlign="center center">
-        <img src="https://cdn3.iconfinder.com/data/icons/google-material-design-icons/48/ic_account_circle_48px-512.png" width="130">
+        <img src="assets/images/login" width="50%">
     </div>
-    <form fxFlex fxLayout="column" fxLayoutGap="20px" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <form fxFlex fxLayout="column" fxLayoutGap="20px" [formGroup]="loginForm" (ngSubmit)="login()">
+        <mat-radio-group formControlName="type" style="padding: 25px;" fxLayout fxLayoutAlign="space-around center">
+            <mat-radio-button value="email" class="name-det" [checked]="true">Email</mat-radio-button>
+            <mat-radio-button value="mobile" class="name-det">Mobile</mat-radio-button>
+          </mat-radio-group>
         <!--Email Id & Mobile Number-->
         <div fxLayout="column" fxLayoutGap="5px">
-            <mat-form-field appearance="outline">
+            <!--Email-->
+            <mat-form-field appearance="outline" *ngIf="!isMobileLogin">
                 <mat-label>Email Id </mat-label>
-                <input matInput placeholder="Email Id " formControlName="emailId">
-                <mat-icon matSuffix> email</mat-icon>
+                <input matInput placeholder="Email Id " formControlName="userId">
+                <!-- <span class="name-det mb-10">{{'Mobile' | translate}} ({{ countryCode }})</span> -->
+                <mat-icon matSuffix>{{loginTypeIcon}}</mat-icon>
                 <mat-error *ngIf="loginForm.get('emailId')?.errors?.required">
                     Please enter your emailId
                 </mat-error>
             </mat-form-field>
+            <!--Mobile-->
+            <mat-form-field appearance="outline" *ngIf="isMobileLogin">
+                <mat-label>Mobile number</mat-label>
+                <input matInput placeholder="Mobile number " formControlName="userId">
+                <mat-icon matSuffix>{{loginTypeIcon}}</mat-icon>
+                <mat-error *ngIf="loginForm.get('emailId')?.errors?.required">
+                    Please enter your mobile number
+                </mat-error>
+            </mat-form-field>
+
             <mat-form-field appearance="outline">
                 <mat-label> Password</mat-label>
-                <input matInput placeholder=" Mobile Number" formControlName="password">
-                <mat-icon matSuffix> visibility</mat-icon>
+                <input matInput [type]="hidePassword ? 'password' : 'text'" placeholder="password" formControlName="password">
+                <mat-icon matSuffix (click)="hidePassword = !hidePassword">
+                    {{hidePassword ? 'visibility_off' : 'visibility'}}
+                </mat-icon>
                 <mat-error *ngIf="loginForm.get('mobileNumber')?.errors?.required">
                     Please enter your password
                 </mat-error>
@@ -28,7 +46,7 @@
             <!-- <button mat-button class="login" routerLink="/auth/signup">Sign Up</button> -->
             <div fxLayout="row" fxLayoutGap="5px" (click)="onNoClick()">
                 <span>Don't  have an account?</span>
-                <a style="cursor: pointer;" (click)="signup()">SignUp</a>
+                <a style="cursor: pointer;" (click)="signupDialogBox()">SignUp</a>
             </div>
         </div>
     </form>
